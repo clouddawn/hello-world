@@ -7,6 +7,9 @@
 *::after {
   box-sizing: border-box;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
 body { /* IOS禁止微信调整字体大小 */
   -webkit-text-size-adjust: 100% !important;
 }

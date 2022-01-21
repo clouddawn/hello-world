@@ -6,6 +6,7 @@ import './general/pxtorem.js';
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import axios from 'axios';
+import { Toast } from 'vant';
 
 Vue.prototype.$axios = axios;
 axios.defaults.withCredentials = true;//允许跨域携带cookie信息
@@ -17,6 +18,10 @@ axios.defaults.baseURL = "/apis/";
 Vue.use(Vant);
 
 Vue.config.productionTip = false;
+
+Toast.setDefaultOptions("loading", {
+    duration: 20000,
+});
 
 new Vue({
     router,
