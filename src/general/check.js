@@ -19,13 +19,13 @@ export default {
     }
   },
   // 校验中文名
-  chineseName(cn) { // 只能输入2到16位中文字符
+  chineseName(cn) { // 只能输入2到16位中文字符和·
     if (!cn) {
       Toast('请输入您的姓名');
       return false;
     } else {
       let str = cn.replace(/[ ]/g, '');
-      let reg = /^[\u4e00-\u9fa5]{2,16}$/;
+      let reg = /^[\u4e00-\u9fa5·]{2,16}$/;
       let result = reg.test(str);
       if (!result) {
         Toast('请输入正确的姓名');
@@ -39,7 +39,7 @@ export default {
       Toast('Please enter your English name');
       return false;
     } else {
-      let reg = /^[a-zA-Z\s]{2,16}$/;
+      let reg = /^[a-zA-Z\s]{2,32}$/;
       let result = reg.test(en);
       if (!result) {
         Toast('Please enter your correct English name');
@@ -47,12 +47,12 @@ export default {
       return result;
     }
   },
-  realName(rn) { // 真实姓名，中英文都可以，2到16个字符
+  realName(rn) { // 真实姓名，中英文都可以，2到32个字符
     if (!rn) {
       Toast('请输入您的姓名');
       return false;
     } else {
-      let reg = /^([\u4e00-\u9fa5]{2,16}|[a-zA-Z\s]{2,16})$/;
+      let reg = /^([\u4e00-\u9fa5·]{2,32}|[a-zA-Z\s]{2,32})$/;
       let result = reg.test(rn);
       if (!result) {
         Toast('请输入正确的姓名');
@@ -170,7 +170,7 @@ export default {
       }
     }
   },
-  // 校验除身份证意外的其他证件
+  // 校验除身份证以外的其他证件
   foreignerId(id) {
     if (!id) {
       Toast('请输入您的证件号码');
@@ -200,4 +200,20 @@ export default {
       }
     }
   },
+  // 校验车牌号
+  carNumber(carNumber) {
+    if (!carNumber) {
+      Toast('请输入车牌号');
+      return false;
+    } else {
+      let reg = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z][A-HJ-NP-Z0-9]{4,5}[A-HJ-NP-Z0-9挂学警港澳]$/;
+      if (!reg.test(carNumber)) {
+        Toast('请输入正确的车牌号');
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+
 };
