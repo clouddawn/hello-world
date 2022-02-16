@@ -10,7 +10,8 @@ export default {
       return false;
     } else {
       let str = pn.replace(/[ ]/g, '');
-      let reg = /^1[3456789]\d{9}$/;
+      // let reg = /^1[2-9]\d{9}$/;
+      let reg = /^1\d{10}$/;
       let result = reg.test(str);
       if (!result) {
         Toast('请输入正确的11位手机号码');
