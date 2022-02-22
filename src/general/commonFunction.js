@@ -1,4 +1,6 @@
 // 常用函数封装
+import axios from 'axios';
+import {Dialog, Toast} from 'vant';
 
 export default {
   // 时间戳转换
