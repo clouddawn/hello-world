@@ -66,4 +66,64 @@ export default {
       event.target.clientHeight; //
     return scrollBottom < 100;
   },
+  // 封装 axios post
+  postAxios(url, params, successCallBack, failtureCallBack) {
+    Toast.loading({
+      message: "加载中...",
+      forbidClick: true,
+    });
+    axios
+      .post(url, params)
+      .then((res) => {
+        Toast.clear();
+        if (res.data.success) {
+          Dialog.alert({
+            message: res.data.message,
+          }).then(() => {
+            successCallBack(res);
+          });
+        } else {
+          Dialog.alert({
+            message: res.data.message,
+          }).then(() => {
+            failtureCallBack(res);
+          });
+        }
+      })
+      .catch((err) => {
+        Toast.clear();
+        console.log(err);
+        Dialog.alert({
+          message: "调用接口失败",
+        }).then(() => {});
+      });
+  },
+  // 封装 axios get
+  getAxios(url, params, successCallBack, failtureCallBack) {
+    Toast.loading({
+      message: "加载中...",
+      forbidClick: true,
+    });
+    axios
+      .get(url, params)
+      .then((res) => {
+        Toast.clear();
+        if (res.data.success) {
+          successCallBack(res);
+        } else {
+          Dialog.alert({
+            message: res.data.message,
+          }).then(() => {
+            failtureCallBack(res);
+          });
+        }
+      })
+      .catch((err) => {
+        Toast.clear();
+        console.log(err);
+        Dialog.alert({
+          message: "调用接口失败",
+        }).then(() => {});
+      });
+  },
 };
