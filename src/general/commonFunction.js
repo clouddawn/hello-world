@@ -128,4 +128,9 @@ export default {
         }).then(() => {});
       });
   },
+  // 通过对象的 value 获取对象的 key
+  findKey(obj, value, compare = (a, b) => a === b) {
+    // obj 目标对象
+    return Object.keys(obj).find(k => compare(obj[k], value));
+  },
 };
