@@ -1,5 +1,4 @@
-// 常用函数封装
-import axios from 'axios';
+// chenjingyu 常用函数封装
 import {Dialog, Toast} from 'vant';
 
 export default {
@@ -80,5 +79,59 @@ export default {
       _formData.append(key,params[key]);
     }
     return _formData;
+  },
+  //post 示例
+  post() {
+    Toast.loading({
+      message: "加载中...",
+      forbidClick: true,
+    });
+    this.$axios.post("")
+      .then((res) => {
+        Toast.clear();
+        if (res.data.code === 200) {
+        } else {
+          Dialog.alert({
+            message: res.data.message,
+          }).then(() => {
+            // on close
+          });
+        }
+      })
+      .catch((err) => {
+        Toast.clear();
+        console.error(err);
+        Dialog.alert({
+          message: "调用接口失败"
+        }).then(() => {
+        });
+      });
+  },
+  // get 示例
+  get() {
+    Toast.loading({
+      message: "加载中...",
+      forbidClick: true,
+    });
+    this.$axios.get("")
+      .then((res) => {
+        Toast.clear();
+        if (res.data.code === 200) {
+        } else {
+          Dialog.alert({
+            message: res.data.message,
+          }).then(() => {
+            // on close
+          });
+        }
+      })
+      .catch((err) => {
+        Toast.clear();
+        console.error(err);
+        Dialog.alert({
+          message: "调用接口失败"
+        }).then(() => {
+        });
+      });
   }
 };

@@ -1,22 +1,28 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     meta: {title: "首页"},
-    component: ()=>import("@/views/Home/Home.vue"),
+    component: () => import("@/views/Home/Home.vue"),
   },
-]
+  {
+    path: "/Form",
+    name: "Form",
+    meta: {title: "表单页"},
+    component: () => import("@/examples/Form/Form.vue"),
+  },
+];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes
-})
+});
 
 router.beforeEach((to, from, next) => {//beforeEach是router的钩子函数，在进入路由前执行
   if (to.meta.title) {//判断是否有标题
@@ -24,13 +30,13 @@ router.beforeEach((to, from, next) => {//beforeEach是router的钩子函数，�
   }
   // 进入页面从顶部开始展示
   // chrome
-  document.body.scrollTop = 0
+  document.body.scrollTop = 0;
   // firefox
-  document.documentElement.scrollTop = 0
+  document.documentElement.scrollTop = 0;
   // safari
-  window.pageYOffset = 0
+  window.pageYOffset = 0;
 
   next();  //执行进入路由，如果不写就不会进入目标页
 });
 
-export default router
+export default router;

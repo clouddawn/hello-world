@@ -1,0 +1,44 @@
+main {
+  min-height: 100vh;
+  padding: 12.6rem 1.6rem 4rem;
+  background: #f3f5f7 url("~@/assets/examples/topImg.png") no-repeat top;
+  background-size: contain;
+
+  section {
+    background: #FFFFFF;
+    border-radius: 0.6rem;
+    margin-bottom: 1.4rem;
+    //outline: 1px solid red;
+
+    .oneLine {
+      border-bottom: 1px solid #E5E5E5;
+      padding: 2rem 1.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .left {
+        .red {
+          color: red;
+        }
+      }
+
+      .right {
+        input {
+          border: none;
+          text-align: right;
+        }
+
+        .rightImg {
+          width: 0.6rem;
+          height: 1.2rem;
+          margin-left: 0.8rem;
+        }
+      }
+    }
+
+    .oneLine:last-child {
+      border: none;
+    }
+  }
+}
