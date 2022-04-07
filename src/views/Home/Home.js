@@ -27,7 +27,7 @@ export default {
           forbidClick: true,
         });
         this.$axios
-            .post("/messageboard/userLogin", params)
+            .post("/userLogin", params)
             .then((res) => {
               Toast.clear();
               if (res.data.result !== 1) {
@@ -50,12 +50,12 @@ export default {
           message: "加载中...",
           forbidClick: true,
         });
-        this.$axios.post("/messageboard/wap/isLogin")
+        this.$axios.post("/isLogin")
             .then((res) => {
               Toast.clear();
-              if (res.data === "") {
+              if(res.data.result !== 1){
                 Dialog.alert({
-                  message: "未登录",
+                  message: res.data.reason,
                 }).then(() => {
                 });
               }
