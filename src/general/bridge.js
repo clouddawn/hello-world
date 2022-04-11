@@ -15,7 +15,6 @@ function setupWebViewJavascriptBridge(callback) {
     }, 0)
 }
 export default {
- 
     //   安卓IOS的判断
     // let ua = navigator.userAgent;
     // let isAndroid = ua.indexOf("Android") > -1 || ua.indexOf("Adr") > -1;
@@ -30,27 +29,20 @@ export default {
     // if (isiOS) {
     //     bridge.callhandler("setLngAndLat", data2, (callback) => {
     //       console.log(data);
-
     //     });
-
     //   }
     callhandler(name, data, callback) {
         setupWebViewJavascriptBridge(function (bridge) {
             bridge.callHandler(name, data, callback)
         })
     },
-
     //        created{
     //   //  安卓原生调用H5   test为函数名   需要写在周期函数中
     //     // window["test"] = function (name) {
     //     //   return name
     //     // };
-
     //        }
-
-
     // Ios原生调用h5方法，name是methods中定义的方法名。
-
     registerhandler(name, callback) {
         setupWebViewJavascriptBridge(function (bridge) {
             bridge.registerHandler(name, function (data, responseCallback) {

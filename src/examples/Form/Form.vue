@@ -40,7 +40,7 @@
           <span class="red">*</span> 性别
         </div>
         <div class="right">
-          <van-radio-group v-model.number="form.gender" direction="horizontal">
+          <van-radio-group v-model="form.gender" direction="horizontal">
             <van-radio name="1" checked-color="#19A0A0
 ">男
             </van-radio>
@@ -95,6 +95,34 @@
         <div class="right">
           <input type="text" placeholder="请选择" readonly v-model="form.town">
           <img class="rightImg" src="@/assets/examples/arrowRight.png" alt="">
+        </div>
+      </div>
+      <div class="twoLines">
+        <div class="top">
+          <span class="red">*</span> 现住址
+        </div>
+        <div class="bottom">
+          <van-field
+              v-model="form.address"
+              rows="1"
+              autosize
+              type="textarea"
+              placeholder="请输入"
+              maxlength="120"
+          />
+        </div>
+      </div>
+      <div class="twoLines">
+        <div class="top">
+          <span class="red">*</span> 是否为入境人员？
+        </div>
+        <div class="bottom">
+          <van-radio-group v-model="form.entrant" direction="horizontal">
+            <van-radio name="1" checked-color="#19A0A0
+">是</van-radio>
+            <van-radio name="2" checked-color="#19A0A0
+">否</van-radio>
+          </van-radio-group>
         </div>
       </div>
       <!--      区镇选择-->

@@ -16,6 +16,12 @@ const routes = [
     meta: {title: "表单页"},
     component: () => import("@/examples/Form/Form.vue"),
   },
+  {
+    path: "/ScanCode",
+    name: "ScanCode",
+    meta: {title: "扫码页"},
+    component: () => import("@/examples/ScanCode/ScanCode.vue"),
+  }
 ];
 
 const router = new VueRouter({

@@ -40,5 +40,30 @@ main {
     .oneLine:last-child {
       border: none;
     }
+
+    .twoLines {
+      padding: 1rem 1.6rem;
+      border-bottom: 1px solid #E5E5E5;
+      .top {
+        .red {
+          color: red;
+        }
+      }
+      .bottom {
+        //outline: 1px solid red;
+        ::v-deep textarea {
+          border: none;
+          border-radius: 0.6rem;
+          background-color: #F3F5F9;
+          padding: 0.5rem 1.2rem;
+        }
+        ::v-deep .van-radio-group {
+          padding: 1.6rem 1.6rem 0;
+          .van-radio {
+            width: 45%;
+          }
+        }
+      }
+    }
   }
 }
