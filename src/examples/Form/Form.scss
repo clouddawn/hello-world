@@ -1,6 +1,6 @@
 main {
   min-height: 100vh;
-  padding: 12.6rem 1.6rem 4rem;
+  padding: 12.6rem 1.6rem 8.8rem;
   background: #f3f5f7 url("~@/assets/examples/topImg.png") no-repeat top;
   background-size: contain;
 
@@ -24,6 +24,12 @@ main {
       }
 
       .right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        span {
+          text-align: right;
+        }
         input {
           border: none;
           text-align: right;
@@ -48,9 +54,16 @@ main {
         .red {
           color: red;
         }
+        .tip {
+          font-size: 14px;
+          color: #878787;
+          margin-bottom: 1rem;
+        }
       }
       .bottom {
-        //outline: 1px solid red;
+        ::v-deep .van-field {
+          padding: 0.8rem;
+        }
         ::v-deep textarea {
           border: none;
           border-radius: 0.6rem;
@@ -60,10 +73,27 @@ main {
         ::v-deep .van-radio-group {
           padding: 1.6rem 1.6rem 0;
           .van-radio {
-            width: 45%;
+            width: 40%;
           }
         }
       }
+    }
+  }
+  #submit1 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    padding: 1.4rem 1.6rem;
+    button {
+      color: white;
+      background: linear-gradient(90deg, #19A0A0 0%, #0F7876 100%);
+      border-radius: 2.2rem;
+      border: none;
+      width: 100%;
+      height: 4rem;
+      font-size: 1.6rem;
     }
   }
 }

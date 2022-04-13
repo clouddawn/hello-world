@@ -88,6 +88,16 @@
       </div>
     </section>
     <section>
+      <div class="oneLine" @click="departurePicker = true">
+        <div class="left">
+          <span class="red">*</span> 出发地（省市县）
+        </div>
+        <div class="right" style="width: 50%">
+          <input v-if="!form.departure" type="text" placeholder="请选择" style="width: 80%" readonly v-model="form.departure">
+          <span v-if="form.departure">{{form.departure}}</span>
+          <img class="rightImg" src="@/assets/examples/arrowRight.png" alt="">
+        </div>
+      </div>
       <div class="oneLine" @click="townPicker = true">
         <div class="left">
           <span class="red">*</span> 现住址区镇
@@ -135,6 +145,36 @@
         />
       </van-popup>
     </section>
+    <section>
+      <div class="twoLines">
+        <div class="top">
+          <span class="red">*</span> 行程卡截图
+          <div class="tip">&nbsp;&nbsp;(支持jpg、png等格式）</div>
+        </div>
+        <div class="bottom">
+          <van-uploader
+              :after-read="afterRead"
+              v-model="fileList"
+              multiple
+              :max-count="1"
+          >
+            <img style="width: 7.9rem" src="@/assets/examples/upload.png" alt="">
+          </van-uploader>
+        </div>
+      </div>
+<!--      省市县选择器-->
+      <van-popup v-model="departurePicker" round position="bottom">
+        <van-area
+            title="标题"
+            :area-list="areaList"
+            @cancel="departurePicker = false"
+            @confirm="departureConfirm"
+        />
+      </van-popup>
+    </section>
+    <div id="submit1">
+      <button @click="submit">确认提交</button>
+    </div>
   </main>
 </template>
 
