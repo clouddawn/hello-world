@@ -1,10 +1,12 @@
 {
-  "name": "hello",
+  "name": "hello-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "test-serve": "vue-cli-service serve --mode dev-test",
+    "pro-serve": "vue-cli-service serve --mode dev-pro",
+    "test-build": "vue-cli-service build --mode pro-test",
+    "pro-build": "vue-cli-service build --mode pro-pro",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -30,5 +32,7 @@
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

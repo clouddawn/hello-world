@@ -11,7 +11,7 @@ import { Toast } from 'vant';
 Vue.prototype.$axios = axios;
 axios.defaults.withCredentials = true;//允许跨域携带cookie信息
 
-axios.defaults.baseURL = "/apis/";
+// axios.defaults.baseURL = "/apis/";
 // axios.defaults.baseURL = "http://58.210.88.98:10080/citylivable";
 // axios.defaults.baseURL = "http://thirdapps.ksecard.cn:12503/citylivable";
 
